@@ -136,8 +136,8 @@ The application uses a hybrid state management approach:
 
 This application uses the [ESPN Public API](https://github.com/pseudo-r/Public-ESPN-API), which is an undocumented but widely-used set of endpoints that power ESPN's website and mobile apps.
 
-**Important Notes:**
-NOTE: APIs are unofficial and may change without notice
+
+***NOTE:*** APIs are unofficial and may change without notice
 
 ### Endpoints Used
 
@@ -161,20 +161,24 @@ NOTE: APIs are unofficial and may change without notice
 
 ### Example API Calls
 
+#### Get NBA scoreboard
 ```bash
-# Get NBA scoreboard
 curl "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard"
-
-# Get NFL teams
+```
+#### Get NFL teams
+```bash
 curl "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams"
-
-# Get game summary
+```
+#### Get game summary
+```bash
 curl "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401612825"
-
-# Get team details
+```
+#### Get team details
+```bash
 curl "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/1"
-
-# Get team schedule
+```
+#### Get team schedule
+```bash
 curl "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/1/schedule"
 ```
 
