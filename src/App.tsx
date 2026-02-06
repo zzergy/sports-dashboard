@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route, Outlet } from "react-router-dom";
+import { Refine } from "@refinedev/core";
+import { ThemedLayoutV2 } from "@refinedev/mui";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import SportsBasketballIcon from "@mui/icons-material/SportsBasketball";
 
-function App() {
-  const [count, setCount] = useState(0)
+import DashboardPage from "./pages/dashboard/DashboardPage";
+import TeamsPage from "./pages/teams/TeamsPage";
 
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Refine
+      resources={[
+        {
+          name: "dashboard",
+          list: "/",
+          icon: <DashboardIcon />,
+          meta: { label: "Dashboard" },
+        },
+        {
+          name: "teams",
+          list: "/teams",
+          icon: <SportsBasketballIcon />,
+          meta: { label: "Teams" },
+        },
+      ]}
+      options={{ syncWithLocation: true }}
+    >
+      <Routes>
+        <Route
+          element={
+            <ThemedLayoutV2>
+              <Outlet />
+            </ThemedLayoutV2>
+          }
+        >
+          <Route path="/" element={<DashboardPage />} />
+          <Route path="/teams" element={<TeamsPage />} />
+          <Route path="*" element={<DashboardPage />} />
+        </Route>
+      </Routes>
+    </Refine>
+  );
+};
 
-export default App
+export default App;
