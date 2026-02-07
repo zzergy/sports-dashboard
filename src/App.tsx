@@ -14,13 +14,13 @@ const App = () => {
       resources={[
         {
           name: "dashboard",
-          list: "/",
+          list: import.meta.env.PROD ? "/sports-dashboard" : "/",
           icon: <DashboardIcon />,
           meta: { label: "Dashboard" },
         },
         {
           name: "teams",
-          list: "/teams",
+          list: import.meta.env.PROD ? "/sports-dashboard/teams" : "/teams",
           icon: <SportsBasketballIcon />,
           meta: { label: "Teams" },
         },
@@ -39,7 +39,7 @@ const App = () => {
             }
           >
             <Route path="/" element={<DashboardPage />} />
-            <Route path="/teams" element={<TeamsPage />} />
+            <Route path="teams" element={<TeamsPage />} />
             <Route path="*" element={<DashboardPage />} />
           </Route>
         </Routes>
