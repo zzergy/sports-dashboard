@@ -1,4 +1,10 @@
-import { Routes, Route, Outlet, BrowserRouter } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Outlet,
+  BrowserRouter,
+  HashRouter,
+} from "react-router-dom";
 import { Refine } from "@refinedev/core";
 import { ThemedLayoutV2 } from "@refinedev/mui";
 import DashboardIcon from "@mui/icons-material/Dashboard";
@@ -14,20 +20,20 @@ const App = () => {
       resources={[
         {
           name: "dashboard",
-          list: import.meta.env.PROD ? "/sports-dashboard" : "/",
+          list: "/",
           icon: <DashboardIcon />,
           meta: { label: "Dashboard" },
         },
         {
           name: "teams",
-          list: import.meta.env.PROD ? "/sports-dashboard/teams" : "/teams",
+          list: "/teams",
           icon: <SportsBasketballIcon />,
           meta: { label: "Teams" },
         },
       ]}
       options={{ syncWithLocation: true }}
     >
-      <BrowserRouter
+      <HashRouter
         basename={import.meta.env.PROD ? "/sports-dashboard" : undefined}
       >
         <Routes>
@@ -43,7 +49,7 @@ const App = () => {
             <Route path="*" element={<DashboardPage />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </Refine>
   );
 };
