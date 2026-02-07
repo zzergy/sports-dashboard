@@ -14,7 +14,8 @@ import App from "./App";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* basename for GitHub Pages deployment only */}
+    <BrowserRouter basename={import.meta.env.PROD ? '/sports-dashboard' : undefined}>
       <Provider store={store}>
         <ThemeProvider theme={RefineThemes.BlueDark}>
           <CssBaseline />
