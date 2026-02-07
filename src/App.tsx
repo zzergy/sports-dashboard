@@ -8,26 +8,29 @@ import DashboardPage from "./pages/dashboard/DashboardPage";
 import TeamsPage from "./pages/teams/TeamsPage";
 
 const App = () => {
+  const isProd = import.meta.env.PROD;
+  const basePath = isProd ? "/sports-dashboard" : "";
+
   return (
     // @ts-expect-error - Im not using dataProvider and requests are made directly with useQuery in the hooks, so this error can be ignored
     <Refine
       resources={[
         {
           name: "dashboard",
-          list: "#/",
+          list: `${basePath}#/`,
           icon: <DashboardIcon />,
           meta: { label: "Dashboard" },
         },
         {
           name: "teams",
-          list: "#/teams",
+          list: `${basePath}#/teams`,
           icon: <SportsBasketballIcon />,
           meta: { label: "Teams" },
         },
       ]}
       options={{ syncWithLocation: true }}
     >
-      <HashRouter basename={import.meta.env.PROD ? "/sports-dashboard/" : "/"}>
+      <HashRouter>
         <Routes>
           <Route
             element={
