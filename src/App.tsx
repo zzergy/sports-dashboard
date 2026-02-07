@@ -14,22 +14,20 @@ const App = () => {
       resources={[
         {
           name: "dashboard",
-          list: "/",
+          list: "#/",
           icon: <DashboardIcon />,
           meta: { label: "Dashboard" },
         },
         {
           name: "teams",
-          list: "/teams",
+          list: "#/teams",
           icon: <SportsBasketballIcon />,
           meta: { label: "Teams" },
         },
       ]}
       options={{ syncWithLocation: true }}
     >
-      <HashRouter
-        basename={import.meta.env.PROD ? "/sports-dashboard" : undefined}
-      >
+      <HashRouter>
         <Routes>
           <Route
             element={
