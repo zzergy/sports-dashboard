@@ -9,6 +9,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { RefineSnackbarProvider, RefineThemes } from "@refinedev/mui";
 
 import { store } from "./app/store/store";
+import { AppQueryProvider } from "./app/providers/queryProvider";
 import App from "./App";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -29,7 +30,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             }}
           />
           <RefineSnackbarProvider>
-            <App />
+            <AppQueryProvider>
+              <App />
+            </AppQueryProvider>
           </RefineSnackbarProvider>
         </ThemeProvider>
       </Provider>
