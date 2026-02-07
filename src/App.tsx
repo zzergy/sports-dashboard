@@ -27,7 +27,7 @@ const App = () => {
       ]}
       options={{ syncWithLocation: true }}
     >
-      <HashRouter>
+      <HashRouter basename={import.meta.env.PROD ? "/sports-dashboard/" : "/"}>
         <Routes>
           <Route
             element={
