@@ -9,6 +9,7 @@ import TeamsPage from "./pages/teams/TeamsPage";
 
 const App = () => {
   const isProd = import.meta.env.PROD;
+  // Set basePath for GitHub Pages deployment (production) and empty for development
   const basePath = isProd ? "/sports-dashboard" : "";
 
   return (

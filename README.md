@@ -1,5 +1,7 @@
 # Sports Dashboard
 
+**Live Demo:** [https://zzergy.github.io/sports-dashboard](https://zzergy.github.io/sports-dashboard/#/)
+
 A React + TypeScript sports dashboard built with Refine.dev, Material-UI (MUI), React Query, and Redux Toolkit using the ESPN public API. View live scores, teams, and game statistics for NBA and NFL leagues.
 
 ## Tech Stack
@@ -136,8 +138,7 @@ The application uses a hybrid state management approach:
 
 This application uses the [ESPN Public API](https://github.com/pseudo-r/Public-ESPN-API), which is an undocumented but widely-used set of endpoints that power ESPN's website and mobile apps.
 
-
-***NOTE:*** APIs are unofficial and may change without notice
+**_NOTE:_** APIs are unofficial and may change without notice
 
 ### Endpoints Used
 
@@ -162,22 +163,31 @@ This application uses the [ESPN Public API](https://github.com/pseudo-r/Public-E
 ### Example API Calls
 
 #### Get NBA scoreboard
+
 ```bash
 curl "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard"
 ```
+
 #### Get NFL teams
+
 ```bash
 curl "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams"
 ```
+
 #### Get game summary
+
 ```bash
 curl "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401612825"
 ```
+
 #### Get team details
+
 ```bash
 curl "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/1"
 ```
+
 #### Get team schedule
+
 ```bash
 curl "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/1/schedule"
 ```
