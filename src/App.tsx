@@ -1,4 +1,4 @@
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route, Outlet, BrowserRouter } from "react-router-dom";
 import { Refine } from "@refinedev/core";
 import { ThemedLayoutV2 } from "@refinedev/mui";
 import DashboardIcon from "@mui/icons-material/Dashboard";
@@ -27,19 +27,23 @@ const App = () => {
       ]}
       options={{ syncWithLocation: true }}
     >
-      <Routes>
-        <Route
-          element={
-            <ThemedLayoutV2>
-              <Outlet />
-            </ThemedLayoutV2>
-          }
-        >
-          <Route path="/" element={<DashboardPage />} />
-          <Route path="/teams" element={<TeamsPage />} />
-          <Route path="*" element={<DashboardPage />} />
-        </Route>
-      </Routes>
+      <BrowserRouter
+        basename={import.meta.env.PROD ? "/sports-dashboard" : undefined}
+      >
+        <Routes>
+          <Route
+            element={
+              <ThemedLayoutV2>
+                <Outlet />
+              </ThemedLayoutV2>
+            }
+          >
+            <Route path="/" element={<DashboardPage />} />
+            <Route path="/teams" element={<TeamsPage />} />
+            <Route path="*" element={<DashboardPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </Refine>
   );
 };

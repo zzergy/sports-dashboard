@@ -15,28 +15,27 @@ import App from "./App";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     {/* basename for GitHub Pages deployment only */}
-    <BrowserRouter basename={import.meta.env.PROD ? '/sports-dashboard' : undefined}>
-      <Provider store={store}>
-        <ThemeProvider theme={RefineThemes.BlueDark}>
-          <CssBaseline />
-          <GlobalStyles
-            styles={{
-              ".MuiDrawer-root .MuiDrawer-paper": {
-                transition: "width 0.3s ease-in-out",
-              },
-              ".refine-themed-layout-header-actions": {
-                display: "none",
-              },
-              html: { WebkitFontSmoothing: "auto" },
-            }}
-          />
-          <RefineSnackbarProvider>
-            <AppQueryProvider>
-              <App />
-            </AppQueryProvider>
-          </RefineSnackbarProvider>
-        </ThemeProvider>
-      </Provider>
-    </BrowserRouter>
+
+    <Provider store={store}>
+      <ThemeProvider theme={RefineThemes.BlueDark}>
+        <CssBaseline />
+        <GlobalStyles
+          styles={{
+            ".MuiDrawer-root .MuiDrawer-paper": {
+              transition: "width 0.3s ease-in-out",
+            },
+            ".refine-themed-layout-header-actions": {
+              display: "none",
+            },
+            html: { WebkitFontSmoothing: "auto" },
+          }}
+        />
+        <RefineSnackbarProvider>
+          <AppQueryProvider>
+            <App />
+          </AppQueryProvider>
+        </RefineSnackbarProvider>
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
 );
