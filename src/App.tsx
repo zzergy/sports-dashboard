@@ -1,10 +1,4 @@
-import {
-  Routes,
-  Route,
-  Outlet,
-  BrowserRouter,
-  HashRouter,
-} from "react-router-dom";
+import { Routes, Route, Outlet, HashRouter } from "react-router-dom";
 import { Refine } from "@refinedev/core";
 import { ThemedLayoutV2 } from "@refinedev/mui";
 import DashboardIcon from "@mui/icons-material/Dashboard";
