@@ -9,6 +9,7 @@ import TeamsPage from "./pages/teams/TeamsPage";
 
 const App = () => {
   return (
+    // @ts-expect-error - Im not using dataProvider and requests are made directly with useQuery in the hooks, so this error can be ignored
     <Refine
       resources={[
         {
