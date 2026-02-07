@@ -30,4 +30,4 @@ jobs:
         uses: rayluo/github-pages-overwriter@v1.3
         with:
           source-directory: dist
-          target-branch: main
+          target-branch: gh-pages
